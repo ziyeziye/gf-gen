@@ -119,8 +119,8 @@ func main() {
 		structNames = append(structNames, structName)
 
 		modelInfo := util.GenerateStruct(db, *prefix, tableName, structName, "model", *jsonAnnotation, *gormAnnotation, *gureguTypes)
-		//fmt.Println(modelInfo)
-		//utli.Exit(0)
+		//fmt.Printf("%+v",tableName)
+		//os.Exit(0)
 		var buf bytes.Buffer
 		err = t.Execute(&buf, modelInfo)
 		if err != nil {
@@ -138,10 +138,10 @@ func main() {
 			//write api
 			buf.Reset()
 			err = ct.Execute(&buf, map[string]string{
-				"Package": *packageName,
+				"Package":     *packageName,
 				"PackageName": *packageName + "/model",
-				"StructName": structName,
-				"TableName": tableName,
+				"StructName":  structName,
+				"TableName":   tableName,
 			})
 			if err != nil {
 				fmt.Println("Error in rendering controller: " + err.Error())

@@ -6,11 +6,7 @@ github.com/ziyeziye/gf-framework
 github.com/ziyeziye/gf-gen
 是一个可以通过数据库生成对应gf-Framework的model,struct以及相应的restful api的工具。
 
-## Supported Databases
-- MariaDB
-- MySQL
-- PostgreSQL
-- Microsoft SQL Server
+## 使用工具时注意代码被覆盖
 
 ## Usage
 
@@ -26,3 +22,6 @@ go run main.go --connstr "root:pass@tcp(127.0.0.1:3306)/dbname?&parseTime=True" 
 
 framework-gen --connstr "root:pass@tcp(127.0.0.1:3306)/dbname?&parseTime=True" --prefix gf_ --json --guregu --rest
 ```
+## TODO
+1.计划支持获取数据表字段注释/表注释
+2.写入接口文档注释，支持swagger接口文档

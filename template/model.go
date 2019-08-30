@@ -19,7 +19,7 @@ func ({{.ShortStructName}} {{.StructName}}) TableName() string {
 }
 
 func Get{{.StructName}}(id int) ({{.StructName | toLower}} *{{.StructName}}, err error) {
-	err = {{.StructName}}Model.Where("id", id).Struct({{.StructName | toLower}})
+	err = {{.StructName}}Model.Where("id", id).Struct(&{{.StructName | toLower}})
 	if err != nil && err != sql.ErrNoRows {
 		return
 	}
@@ -31,7 +31,7 @@ func Get{{pluralize .StructName}}(maps map[string]interface{}) ({{pluralize .Str
 	if err != nil {
 		return
 	}
-	err = query.Structs({{pluralize .StructName | toLower}})
+	err = query.Structs(&{{pluralize .StructName | toLower}})
 	if err != nil && err != sql.ErrNoRows {
 		return nil, err
 	}

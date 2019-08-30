@@ -47,8 +47,8 @@ func (c *{{.StructName}}Api) GetAll{{pluralize .StructName}}(r *ghttp.Request) {
 }
 
 func (c *{{.StructName}}Api) Get{{.StructName}}(r *ghttp.Request) {
-	id := r.GetParam("id")
-	{{.StructName | toLower}}, err := model.Get{{.StructName}}(id.Int())
+	id := r.GetInt("id")
+	{{.StructName | toLower}}, err := model.Get{{.StructName}}(id)
 
 	respJson := response.Json(r)
 	if err == nil && {{.StructName | toLower}}.ID > 0 {
@@ -74,10 +74,10 @@ func (c *{{.StructName}}Api) Add{{.StructName}}(r *ghttp.Request) {
 }
 
 func (c *{{.StructName}}Api) Update{{.StructName}}(r *ghttp.Request) {
-	id := r.GetParam("id")
+	id := r.GetInt("id")
 	maps := make(map[string]interface{})
 
-	{{.StructName | toLower}}, err := model.Get{{.StructName}}(id.Int())
+	{{.StructName | toLower}}, err := model.Get{{.StructName}}(id)
 
 	respJson := response.Json(r)
 	if err == nil && {{.StructName | toLower}}.ID > 0 {
@@ -93,8 +93,8 @@ func (c *{{.StructName}}Api) Update{{.StructName}}(r *ghttp.Request) {
 }
 
 func (c *{{.StructName}}Api) Delete{{.StructName}}(r *ghttp.Request) {
-	id := r.GetParam("id")
-	{{.StructName | toLower}}, err := model.Get{{.StructName}}(id.Int())
+	id := r.GetInt("id")
+	{{.StructName | toLower}}, err := model.Get{{.StructName}}(id)
 
 	respJson := response.Json(r)
 	if err != nil {
