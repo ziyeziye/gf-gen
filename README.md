@@ -20,7 +20,7 @@ github.com/ziyeziye/gf-gen
 
 go run main.go --connstr "root:pass@tcp(127.0.0.1:3306)/dbname?&parseTime=True" --package github.com/ziyeziye/gf-framework --prefix gf_ --json --guregu --rest
 
-framework-gen --connstr "root:pass@tcp(127.0.0.1:3306)/dbname?&parseTime=True" --prefix gf_ --json --guregu --rest
+gf-gen --connstr "root:pass@tcp(127.0.0.1:3306)/dbname?&parseTime=True" --prefix gf_ --json --guregu --rest
 ```
 ## TODO
 1.计划支持获取数据表字段注释/表注释
